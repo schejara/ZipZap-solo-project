@@ -19,8 +19,17 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import Admin from '../Admin/Admin';
+import OrderConfirmation from '../Order_confirmation/Order_Confirmation';
+import CheckOut from '../CheckOut/CheckOut';
+import OrderHistory from '../Order_history/Order_history';
+import ProductListing from '../ProductListing/ProductListing';
+import Search from '../Search/Search';
+import ViewBag from '../ViewBag/ViewBag';
+import ProductDetail from '../ProductDetail/ProductDetail';
 
 import './App.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -67,6 +76,73 @@ function App() {
           >
             <InfoPage />
           </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/Admin"
+          >
+            <Admin />
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/Search"
+          >
+            <Search />
+          </ProtectedRoute>
+          
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/OrderConfirmation"
+          >
+            <OrderConfirmation/>
+          </ProtectedRoute>
+          
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/OrderHistory"
+          >
+            <OrderHistory />
+          </ProtectedRoute>
+         
+         
+         
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/ViewBag"
+          >
+            < ViewBag/>
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/CheckOut"
+          >
+            < CheckOut/>
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/ProductListing"
+          >
+            < ProductListing/>
+          </ProtectedRoute> 
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/ProductDetail"
+          >
+            <ProductDetail/>
+          </ProtectedRoute>      
+          
+          
+
+
+
 
           <Route
             exact
