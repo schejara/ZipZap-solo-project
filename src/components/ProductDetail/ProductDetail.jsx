@@ -21,6 +21,7 @@ function ProductDetail() {
 
     const addToBag = () => {
         dispatch({ type: 'ADD_TO_BAG', payload: productDetail });
+        history.push('/ViewBag')
     }
 
     useEffect(() => {
