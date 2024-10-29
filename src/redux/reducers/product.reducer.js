@@ -1,10 +1,14 @@
-const Product = (state = [], action) => {
+const initialState = {
+    products:[],
+};
+
+const productReducer = (state = initialState, action) => {
     switch (action.type) {
       case "SET_PRODUCT":
-        return action.payload;
+        return {...state,products:action.payload};
       default:
         return state;
     }
   };
 
-  export default Product
+  export default productReducer

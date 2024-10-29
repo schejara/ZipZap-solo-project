@@ -46,8 +46,8 @@ function App() {
         <Nav />
         <Switch>
           {/* Visiting localhost:5173 will redirect to localhost:5173/home */}
-          <Redirect exact from="/" to="/home" />
-
+           <Redirect exact from="/" to="/home" />
+         
           {/* Visiting localhost:5173/about will show the about page. */}
           <Route
             // shows AboutPage at all times (logged in or not)
@@ -76,6 +76,7 @@ function App() {
           >
             <InfoPage />
           </ProtectedRoute>
+          
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
@@ -83,6 +84,7 @@ function App() {
           >
             <Admin />
           </ProtectedRoute>
+          
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
@@ -134,7 +136,7 @@ function App() {
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/ProductDetail"
+            path="/ProductDetail/:id"
           >
             <ProductDetail/>
           </ProtectedRoute>      
