@@ -11,7 +11,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const productRouter = require('./routes/product.router')
 const productdetailRouter = require('./routes/productdetail.router')
-
+const orderRouter = require('./routes/order.router')
 // Express Middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -27,7 +27,8 @@ app.use(passport.session());
 // Routes
 app.use('/api/user', userRouter);
 app.use('/api/products',productRouter);
-app.use('/api/productsdetail',productdetailRouter)
+app.use('/api/productsdetail',productdetailRouter);
+app.use('/api/order/',orderRouter);
 
 // Listen Server & Port
 app.listen(PORT, () => {

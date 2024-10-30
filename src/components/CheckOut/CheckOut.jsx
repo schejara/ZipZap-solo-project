@@ -1,10 +1,11 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 function CheckOut() {
     const checkOutItems = useSelector((store) => store.checkOutReducer.items);
-
+    const dispatch = useDispatch();
     console.log('checkout item',checkOutItems);
     const history = useHistory();
 
@@ -15,6 +16,11 @@ function CheckOut() {
     const cart = () => {
         history.push('/ViewBag');
     };
+
+    const orderSubmit = () => {
+        dispatch({ type: 'ADD_TO_ORDER_CONFIRMATION', payload: checkOutItems });
+        history.push('/OrderConfirmation');
+    }
 
     return (
         <div>
@@ -30,9 +36,11 @@ function CheckOut() {
                             <p>{item.description}</p>
                             <p>Price: ${item.price}</p>
                             <p>Inventory: {item.inventory_count}</p>
+                            
                          
                         </li>
                     ))}
+                    <button onClick={orderSubmit}>Place Order</button>
                
             </div>
         </div>

@@ -8,6 +8,7 @@ import orderDetail from './orderdetail.reducer';
 import productDetailReducer from './productdetail.reducer';
 import bagReducer from './bag.reducer';
 import checkOutReducer from './checkout.reducer';
+import orderConfirmationReducer from './orderconfirmation.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   productDetailReducer,
   bagReducer,
   checkOutReducer,
+  orderConfirmationReducer,
 });
 
 export default rootReducer;
