@@ -1,34 +1,34 @@
 import React, { useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-
+import { useHistory, useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 function ProductDetail() {
     const productDetail = useSelector((store) => store.productDetailReducer.productDetail);
-
     const history = useHistory();
     const dispatch = useDispatch();
-    
-    console.log('product Details', productDetail);
     const { id } = useParams();
+
     const home = () => {
-        history.push('/Home')
-    }
+        history.push('/Home');
+    };
+
     const cart = () => {
-        history.push('/ViewBag')
-    }
+        history.push('/ViewBag');
+    };
 
     const addToBag = () => {
-        dispatch({ type: 'ADD_TO_BAG', payload: productDetail });
-        history.push('/ViewBag')
-    }
+        const productWithQuantity = {
+            ...productDetail,
+            quantity: 1, // Set default quantity to 1
+        };
+        dispatch({ type: 'ADD_TO_BAG', payload: productWithQuantity });
+        history.push('/ViewBag');
+    };
 
     useEffect(() => {
         dispatch({ type: 'FETCH_PRODUCTS_DETAIL', payload: id });
     }, [dispatch, id]);
-    
-    
+
     return (
         <div>
             <h1>This is a ProductDetail Page</h1>
@@ -44,9 +44,6 @@ function ProductDetail() {
             </div>
         </div>
     );
-
-
 }
-
 
 export default ProductDetail;

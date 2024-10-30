@@ -1,12 +1,10 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 function CheckOut() {
     const checkOutItems = useSelector((store) => store.checkOutReducer.items);
     const dispatch = useDispatch();
-    console.log('checkout item',checkOutItems);
     const history = useHistory();
 
     const home = () => {
@@ -20,29 +18,45 @@ function CheckOut() {
     const orderSubmit = () => {
         dispatch({ type: 'ADD_TO_ORDER_CONFIRMATION', payload: checkOutItems });
         history.push('/OrderConfirmation');
-    }
+    };
+
+    // Calculate total amount and total quantity
+    const { totalAmount, totalQuantity } = checkOutItems.reduce((acc, item) => {
+        acc.totalAmount += item.price * item.quantity; // Use item.quantity for subtotal
+        acc.totalQuantity += item.quantity; // Sum up quantities
+        return acc;
+    }, { totalAmount: 0, totalQuantity: 0 });
 
     return (
         <div>
             <h1>This is a CheckOut Page</h1>
             <button onClick={home}>Home</button>
             <button onClick={cart}>Cart</button>
-            <div>
-            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>SubTotal</th>
+                    </tr>
+                </thead>
+                <tbody>
                     {checkOutItems.map((item, id) => (
-                        <li key={id}>
-                            <h2>{item.name}</h2>
-                            <img src={item.image_url} alt={item.name} />
-                            <p>{item.description}</p>
-                            <p>Price: ${item.price}</p>
-                            <p>Inventory: {item.inventory_count}</p>
-                            
-                         
-                        </li>
+                        <tr key={id}>
+                            <td>{item.name}</td>
+                            <td>{item.description}</td>
+                            <td>${item.price}</td>
+                            <td>{item.quantity}</td> {/* Display quantity here */}
+                            <td>${(item.price * item.quantity)}</td> {/* Subtotal for each item */}
+                        </tr>
                     ))}
-                    <button onClick={orderSubmit}>Place Order</button>
-               
-            </div>
+                </tbody>
+            </table>
+            <h3>Total Quantity: {totalQuantity}</h3>
+            <h3>Total Amount: ${totalAmount}</h3>
+            <button onClick={orderSubmit}>Place Order</button>
         </div>
     );
 }

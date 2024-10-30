@@ -12,6 +12,7 @@ function OrderConfirmation() {
         history.push('/ViewBag')
     }
     
+    
     return (
         <div>
             <h1>This is a OrderConfirmation Page</h1>
