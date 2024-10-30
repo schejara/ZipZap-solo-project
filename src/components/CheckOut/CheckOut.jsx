@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function CheckOut() {
     const checkOutItems = useSelector((store) => store.checkOutReducer.items);
+    const orderItems = useSelector((store) => store.orderReducer.items);
+    console.log('order items',orderItems);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -17,6 +19,7 @@ function CheckOut() {
 
     const orderSubmit = () => {
         dispatch({ type: 'ADD_TO_ORDER_CONFIRMATION', payload: checkOutItems });
+        dispatch({type : 'ADD_ORDER', payload:orderItems });
         history.push('/OrderConfirmation');
     };
 

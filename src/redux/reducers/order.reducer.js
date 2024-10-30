@@ -1,10 +1,17 @@
-const order = (state = [], action) => {
-    switch (action.type) {
-      case "SET_ORDER":
-        return action.payload;
-      default:
-        return state;
-    }
-  };
+const initialState = {
+    items: [],
+};
 
-  export default order
+const orderReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case 'ADD_ORDER':
+            return {
+                ...state,
+                items: action.payload,  // Set items directly from payload
+            };
+        default:
+            return state;
+    }
+};
+
+export default orderReducer;

@@ -21,7 +21,7 @@ function OrderConfirmation() {
             <button onClick={home}>Home</button>
             <button onClick={cart}>Cart</button>
             <div>
-            {confirmItems.map((item, id) => (
+            {/* {confirmItems.map((item, id) => (
                         <li key={id}>
                             <h2>{item.name}</h2>
                             <img src={item.image_url} alt={item.name} />
@@ -31,7 +31,9 @@ function OrderConfirmation() {
                             
                          
                         </li>
-                    ))}
+                    ))} */}
+
+                    
             </div>
         </div>
     );

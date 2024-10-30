@@ -20,23 +20,23 @@ router.get("/", rejectUnauthenticated, (req, res) => {
 });
 module.exports = router;
 
-// router.post("/", rejectUnauthenticated, (req, res) => {
-//     const queryText =
-//       "INSERT INTO Orders (description, image_url, user_id) VALUES ($1, $2, $3);";
+router.post("/", rejectUnauthenticated, (req, res) => {
+    console.log('in Order Router')
+    const queryText =
+      "INSERT INTO Orders (user_id,total_amount) VALUES ($1, $2);";
   
-//     const {description, image_url, user_id} = req.body;
-//     // let image = req.body.image_url;
-//     // let userId = req.body.user_id;
-//     const params = [description, image_url, user_id];
-//     pool
-//       .query(queryText, params)
-//       .then((results) => res.sendStatus(201))
-//       .catch((error) => {
-//         console.log("Error making POST for items:", error);
-//         res.sendStatus(500);
-//       });
-//     // endpoint functionality
-//   });
+    const {user_id,total_amount} = req.body;
+
+    const params = [user_id,total_amount];
+    pool
+      .query(queryText, params)
+      .then((results) => res.sendStatus(201))
+      .catch((error) => {
+        console.log("Error making POST for items:", error);
+        res.sendStatus(500);
+      });
+    
+  });
   
   /**
    * Delete an item if it's something the logged in user added
