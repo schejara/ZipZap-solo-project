@@ -4,8 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function CheckOut() {
     const checkOutItems = useSelector((store) => store.checkOutReducer.items);
-    const orderItems = useSelector((store) => store.orderReducer.items);
-    console.log('order items',orderItems);
+    //const orderItems = useSelector((store) => store.orderReducer.items);
+    const user = useSelector((store) => store.user);
+  
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -17,18 +18,39 @@ function CheckOut() {
         history.push('/ViewBag');
     };
 
-    const orderSubmit = () => {
-        dispatch({ type: 'ADD_TO_ORDER_CONFIRMATION', payload: checkOutItems });
-        dispatch({type : 'ADD_ORDER', payload:orderItems });
-        history.push('/OrderConfirmation');
+// Calculate total amount and total quantity
+const { total_amount, totalQuantity } = checkOutItems.reduce((acc, item) => {
+    acc.total_amount += item.price * item.quantity; // Use item.quantity for subtotal
+    acc.totalQuantity += item.quantity; // Sum up quantities
+    return acc;
+}, { total_amount: 0, totalQuantity: 0 });
+
+const orderItemDetails = checkOutItems.map(item => ({
+    product_id: item.product_id, // Make sure you have this in your item
+    quantity: item.quantity,
+    price: item.price,
+}));
+
+
+const orderSubmit = (event) => {
+    event.preventDefault();
+    const user_id = user.id;
+    let data = {
+      user_id: user_id,
+      total_amount:total_amount,
+      orderItemDetails,
     };
 
-    // Calculate total amount and total quantity
-    const { totalAmount, totalQuantity } = checkOutItems.reduce((acc, item) => {
-        acc.totalAmount += item.price * item.quantity; // Use item.quantity for subtotal
-        acc.totalQuantity += item.quantity; // Sum up quantities
-        return acc;
-    }, { totalAmount: 0, totalQuantity: 0 });
+    console.log('Submitting order:', data); // Check the submitted data
+
+    dispatch({
+      type: "ADD_ORDER",
+      payload: data,
+    });
+    history.push('/OrderConfirmation');
+  };
+
+    
 
     return (
         <div>
@@ -58,7 +80,7 @@ function CheckOut() {
                 </tbody>
             </table>
             <h3>Total Quantity: {totalQuantity}</h3>
-            <h3>Total Amount: ${totalAmount}</h3>
+            <h3>Total Amount: ${total_amount}</h3>
             <button onClick={orderSubmit}>Place Order</button>
         </div>
     );

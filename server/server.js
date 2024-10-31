@@ -12,6 +12,8 @@ const userRouter = require('./routes/user.router');
 const productRouter = require('./routes/product.router')
 const productdetailRouter = require('./routes/productdetail.router')
 const orderRouter = require('./routes/order.router')
+const orderHistoryRouter = require('./routes/orderhistory.router')
+const adminRouter = require('./routes/admin.router')
 // Express Middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -29,6 +31,8 @@ app.use('/api/user', userRouter);
 app.use('/api/products',productRouter);
 app.use('/api/productsdetail',productdetailRouter);
 app.use('/api/order/',orderRouter);
+app.use('/api/orderhistory',orderHistoryRouter);
+app.use('/api/admin',adminRouter);
 
 // Listen Server & Port
 app.listen(PORT, () => {

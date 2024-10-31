@@ -18,25 +18,49 @@ router.get("/", rejectUnauthenticated, (req, res) => {
       res.sendStatus(500);
     });
 });
-module.exports = router;
+
+/// Insert
 
 router.post("/", rejectUnauthenticated, (req, res) => {
-    console.log('in Order Router')
+    console.log('Incoming order data:', req.body); 
+    const { user_id, total_amount, orderItemDetails } = req.body; // Assuming orderDetails is an array
     const queryText =
-      "INSERT INTO Orders (user_id,total_amount) VALUES ($1, $2);";
-  
-    const {user_id,total_amount} = req.body;
+        "INSERT INTO Orders (user_id, total_amount) VALUES ($1, $2) RETURNING order_id;";
+    const params = [user_id, total_amount];
 
-    const params = [user_id,total_amount];
-    pool
-      .query(queryText, params)
-      .then((results) => res.sendStatus(201))
-      .catch((error) => {
-        console.log("Error making POST for items:", error);
-        res.sendStatus(500);
-      });
-    
-  });
+    pool.query(queryText, params)
+        .then(result => {
+            // Capture the order_id
+            const [{ order_id }] = result.rows;
+
+            // Insert each order detail using map
+            orderItemDetails.map(detail => {
+                const detailQueryText = `
+                    INSERT INTO OrderDetails (order_id, product_id, quantity, price)
+                    VALUES ($1, $2, $3, $4);
+                `;
+                const detailParams = [order_id, detail.product_id, detail.quantity, detail.price];
+
+                // Execute the insert query for each detail
+                pool.query(detailQueryText, detailParams)
+                    .catch(error => {
+                        console.log("Error inserting order detail:", error);
+                    });
+            });
+
+            // Send a success response
+            res.sendStatus(201);
+        })
+        .catch(error => {
+            console.log("Error making POST for items:", error);
+            res.sendStatus(500);
+        });
+});
+
+
+
+
+
   
   /**
    * Delete an item if it's something the logged in user added
@@ -59,3 +83,4 @@ router.post("/", rejectUnauthenticated, (req, res) => {
       });
     }
   });
+  module.exports = router;

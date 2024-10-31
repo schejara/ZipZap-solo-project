@@ -8,14 +8,17 @@ import './ViewBag'
 function ViewBag() {
    
     const [count,setCount] = useState(1);
-    
-    const history = useHistory();
     const bagItems = useSelector((store) => store.bagReducer.items);
     console.log('bagItems',bagItems);
     const dispatch = useDispatch();
+    
+    const history = useHistory();
+    
     const home = () => {
         history.push('/Home')
     }
+
+
     const proceedToCheckOut = () => {
         dispatch({ type: 'ADD_TO_CHECK_OUT', payload: bagItems });
         history.push('/CheckOut')
