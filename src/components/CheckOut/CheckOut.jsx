@@ -10,9 +10,7 @@ function CheckOut() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const home = () => {
-        history.push('/Home');
-    };
+   
 
     const cart = () => {
         history.push('/ViewBag');
@@ -55,12 +53,12 @@ const orderSubmit = (event) => {
     return (
         <div>
             <h1>This is a CheckOut Page</h1>
-            <button onClick={home}>Home</button>
+            
             <button onClick={cart}>Cart</button>
             <table>
                 <thead>
                     <tr>
-                        <th>Product Name</th>
+                          <th>Product Name</th>
                         <th>Description</th>
                         <th>Price</th>
                         <th>Quantity</th>
@@ -79,6 +77,7 @@ const orderSubmit = (event) => {
                     ))}
                 </tbody>
             </table>
+            
             <h3>Total Quantity: {totalQuantity}</h3>
             <h3>Total Amount: ${total_amount}</h3>
             <button onClick={orderSubmit}>Place Order</button>
