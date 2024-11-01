@@ -15,7 +15,7 @@ function UserPage() {
   const history = useHistory();
 
   console.log('product is', product);
-
+  
   useEffect(() => {
     dispatch({type:'FETCH_PRODUCTS'});
   },[]);
@@ -36,17 +36,20 @@ function UserPage() {
       
       {product.map((productItem) => (
       <div key={productItem.product_id}>
-         <p>{productItem.name}</p>
-        <img src={productItem.image_url} alt={productItem.product_name} onClick={() => handleImageClick(productItem.product_id)}  />
+         <p className="product-name">{productItem.name}</p>
+        <img 
+        src={productItem.image_url} 
+        alt={productItem.product_name} 
+        onClick={() => handleImageClick(productItem.product_id)}  />
        
       </div>
     ))
-   };
+   }
     </div>
     
     
-  );
+  )
 }
 
 // this allows us to use <App /> in index.js
-export default UserPage;
+export default UserPage

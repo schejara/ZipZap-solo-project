@@ -58,7 +58,7 @@ const orderSubmit = (event) => {
             <table>
                 <thead>
                     <tr>
-                          <th>Product Name</th>
+                        <th>Product Name</th>
                         <th>Description</th>
                         <th>Price</th>
                         <th>Quantity</th>

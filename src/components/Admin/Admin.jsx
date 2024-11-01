@@ -9,15 +9,19 @@ function Admin() {
     const[price,setPrice] = useState('');
    const info = useSelector((store) => store.adminReducer.products);
 
-    const deleteItem = (item) => {
-        console.log('item to be deleted is',item);
+   const deleteItem = (item) => {
+    const confirmDelete = window.confirm(`WARNING! Are you sure you want to delete ${item.name}?`);
+    if (confirmDelete) {
+        console.log('item to be deleted is', item);
         let data = {
-          product_id: item.product_id
-          
+            product_id: item.product_id
         };
-        console.log('item id to be deleted is', data)
-        dispatch({ type: "DELETE_ITEM", payload:data });
-      };
+        console.log('item id to be deleted is', data);
+        dispatch({ type: "DELETE_ITEM", payload: data });
+    } else {
+        console.log('Delete action canceled');
+    }
+};
 
       const handleInventory = (event) => {
        event.preventDefault();

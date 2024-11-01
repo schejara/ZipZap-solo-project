@@ -1,4 +1,6 @@
-const category = (state = [], action) => {
+
+
+const categoryReducer = (state = [], action) => {
     switch (action.type) {
       case "SET_CATEGORY":
         return action.payload;
@@ -7,4 +9,4 @@ const category = (state = [], action) => {
     }
   };
 
-  export default category
+  export default categoryReducer

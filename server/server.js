@@ -14,6 +14,9 @@ const productdetailRouter = require('./routes/productdetail.router')
 const orderRouter = require('./routes/order.router')
 const orderHistoryRouter = require('./routes/orderhistory.router')
 const adminRouter = require('./routes/admin.router')
+const categoryRouter = require('./routes/categorys.router')
+
+
 // Express Middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -33,6 +36,8 @@ app.use('/api/productsdetail',productdetailRouter);
 app.use('/api/order/',orderRouter);
 app.use('/api/orderhistory',orderHistoryRouter);
 app.use('/api/admin',adminRouter);
+app.use('/api/category',categoryRouter);
+
 
 // Listen Server & Port
 app.listen(PORT, () => {

@@ -1,0 +1,33 @@
+/* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full height */
+    background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+    color: #343a40; /* Darker text for contrast */
+  }
+  
+  .error-message {
+    color: red; /* Style for error message */
+    margin-bottom: 1rem;
+  }
+  
+  .btn_asLink {
+    background: transparent;
+    border: none;
+    color: #007bff; /* Link color */
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .btn_asLink:hover {
+    color: #0056b3; /* Darker link color on hover */
+  }
+  

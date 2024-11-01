@@ -49,7 +49,7 @@ function ViewBag() {
             <img src={items.image_url} alt={items.name} />
             <p>{items.description}</p>
             <p>Price: ${items.price}</p>
-            <p>Inventory: {items.inventory_count}</p>
+            
             <button onClick={handleIncrease}>+</button>Qty : {count}
             <button onClick={handleDecrease}>-</button>
             

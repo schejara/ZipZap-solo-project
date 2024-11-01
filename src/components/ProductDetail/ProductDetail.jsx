@@ -39,7 +39,7 @@ function ProductDetail() {
                 <img src={productDetail.image_url} alt={productDetail.name} />
                 <p>{productDetail.description}</p>
                 <p>Price: ${productDetail.price}</p>
-                <p>Inventory: {productDetail.inventory_count}</p>
+                
                 <button onClick={addToBag}>Add to Bag</button>
             </div>
         </div>

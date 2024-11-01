@@ -29,13 +29,18 @@ function Nav() {
               Home
             </Link>
             <Link className="navLink" to="/OrderHistory">Order History</Link>
+            <Link className="navLink" to="/Category">Category</Link>
 
-            <Link className="navLink" to="/info">
-              Info Page
-            </Link>
+            
+
+        {
+          user.username === "admin" && (
             <Link className="navLink" to="/Admin">
              Admin
             </Link>
+          )
+        }
+
             <Link className="navLink" to="/ViewBag">
              Cart
             </Link>
@@ -44,9 +49,7 @@ function Nav() {
           </>
         )}
 
-        <Link className="navLink" to="/about">
-          About
-        </Link>
+        
       </div>
     </div>
   );
