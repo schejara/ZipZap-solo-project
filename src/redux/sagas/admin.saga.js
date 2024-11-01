@@ -11,9 +11,29 @@ function* fetchAdmin() {
         console.log('admin saga get request error', error)
     }
 }
+function* deleteItem(action){
+    try {
+        yield axios.delete(`/api/admin/${action.payload.product_id}`)
+        yield put({type: 'FETCH_ADMIN'})
+    } catch (error) {
+        console.error('Error Deleting Item Saga', error)
+    }
+}
+
+function* putItem(action){
+    try {
+        yield axios.put(`/api/admin/${action.payload.product_id} `)
+        yield put({type: 'FETCH_ADMIN'})
+    } catch (error) {
+        console.error('Error with addItem', error)
+    }
+}
+
 
 function*adminSaga(){
-    yield takeLatest('FETCH_ADMIN', fetchAdmin)
+    yield takeLatest('FETCH_ADMIN', fetchAdmin),
+    yield takeLatest('DELETE_ITEM',deleteItem),
+    yield takeLatest('PUT_ITEM',putItem)
 }
 
 export default adminSaga

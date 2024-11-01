@@ -23,7 +23,7 @@ function* addItem(action){
 
 function* deleteItem(action){
     try {
-        yield axios.delete(`/api/products/${action.payload.id}/${action.payload.user_id}`)
+        yield axios.delete(`/api/products/${action.payload.product_id}`)
         yield put({type: 'FETCH_PRODUCT'})
     } catch (error) {
         console.error('Error Deleting Item Saga', error)

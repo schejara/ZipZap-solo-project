@@ -1,34 +1,69 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+
 function Admin() {
     const dispatch = useDispatch();
-   const info = useSelector((store) => store.adminReducer.products)
-    console.log('info ',info);
+    const[inventory,setInventory] = useState('');
+    const[price,setPrice] = useState('');
+   const info = useSelector((store) => store.adminReducer.products);
+
+    const deleteItem = (item) => {
+        console.log('item to be deleted is',item);
+        let data = {
+          product_id: item.product_id
+          
+        };
+        console.log('item id to be deleted is', data)
+        dispatch({ type: "DELETE_ITEM", payload:data });
+      };
+
+      const handleInventory = (event) => {
+       event.preventDefault();
+       setInventory(event.target.value);
+      }
+
+     const handlePrice = (event) => {
+        event.preventDefault();
+        setPrice(event.target.value);
+     }
+     
+     const handleSubmit = (item) => {
+       console.log('item to be updated is', item);
+        let data = {
+            inventory : item.inventory_count,
+          price: item.price,
+          product_id: item.product_id,
+          
+        };
+        dispatch({
+          type: "PUT_ITEM",
+          payload: data,
+        });
+      };
+
   
-    
 
     useEffect(() => {
         dispatch({type:'FETCH_ADMIN'});
-      },[]);
-    return (
+      },[dispatch]);
+
+     return (
         <div>
-            <h1>Product Management</h1>
+            <h1>Product Management</h1>  
+           
             
-        
         <table>
         <thead>
             <tr>
                 <th>Product Name</th>
                 <th>Description</th>
-                <th>Price</th>
+                <th>Price</th>                
                 <th>Inventory</th>
-                <th>Update</th>
-                <th>Delete</th>
-                <th>Add</th>
-               
+                <th>New Inventory</th>
+                <th>New Price</th>
+                           
             </tr>
         </thead>
         <tbody>
@@ -38,13 +73,13 @@ function Admin() {
                     <td>{item.description}</td>
                     <td>${item.price}</td>
                     <td>{item.inventory_count}</td> 
-                    <button>Update</button>
-                    <button>Delete</button>
-                    <button>Add</button>
+                   <td><input type="number" placeholder='New Inventory' onChange={handleInventory}/> </td>
+                   <td><input type="number" placeholder='New Price' onChange={handlePrice}/> </td>      
+                   <td><button onClick={() => handleSubmit( item)}>Update</button></td>
+                    <td><button onClick={() => deleteItem(item)}>Delete</button></td>
+                           
                     
-                    
-                </tr>
-               
+                </tr>         
                 
             ))}
         </tbody>
@@ -55,4 +90,4 @@ function Admin() {
 }
 
 
-export default Admin;
+export default Admin
