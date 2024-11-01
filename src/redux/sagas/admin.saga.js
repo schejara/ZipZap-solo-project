@@ -22,7 +22,11 @@ function* deleteItem(action){
 
 function* putItem(action){
     try {
-        yield axios.put(`/api/admin/${action.payload.product_id} `)
+        yield axios.put(`/api/admin/${action.payload.product_id} `, {
+            inventory_count: action.payload.inventory_count, // Ensure this matches your database column
+            price: action.payload.price,
+        });
+        
         yield put({type: 'FETCH_ADMIN'})
     } catch (error) {
         console.error('Error with addItem', error)

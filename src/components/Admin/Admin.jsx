@@ -32,8 +32,8 @@ function Admin() {
      const handleSubmit = (item) => {
        console.log('item to be updated is', item);
         let data = {
-            inventory : item.inventory_count,
-          price: item.price,
+            inventory_count : inventory || item.inventory_count,
+          price: price || item.price,
           product_id: item.product_id,
           
         };
