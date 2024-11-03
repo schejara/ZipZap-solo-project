@@ -15,7 +15,7 @@ function UserPage() {
   const history = useHistory();
 
   console.log('product is', product);
-  
+
   useEffect(() => {
     dispatch({type:'FETCH_PRODUCTS'});
   },[]);
@@ -44,7 +44,7 @@ function UserPage() {
        
       </div>
     ))
-   }
+   };
     </div>
     
     

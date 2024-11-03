@@ -12,10 +12,8 @@ import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
-
 import UserPage from '../UserPage/UserPage';
-
+import CategoryItem from '../CategoryItem/CategoryItem';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -87,6 +85,14 @@ function App() {
           >
             <Category />
           </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/CategoryItem/:id"
+          >
+            <CategoryItem/>
+          </ProtectedRoute>      
           
           
           <ProtectedRoute

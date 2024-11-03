@@ -17,6 +17,7 @@ function ProductDetail() {
     };
 
     const addToBag = () => {
+        console.log('i got clicked')
         const productWithQuantity = {
             ...productDetail,
             quantity: 1, // Set default quantity to 1

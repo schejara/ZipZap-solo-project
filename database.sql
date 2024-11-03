@@ -7,3 +7,15 @@ CREATE TABLE "user" (
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );
+
+CREATE TABLE Categories (
+    category_id SERIAL PRIMARY KEY,
+    category_name VARCHAR(50) UNIQUE NOT NULL
+    
+);
+
+INSERT INTO Categories (category_name) VALUES
+('Mens'),
+('Womens'),
+('Kids'),
+('Toys');

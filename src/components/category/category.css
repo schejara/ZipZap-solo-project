@@ -1,0 +1,20 @@
+.category-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap onto the next line */
+    justify-content: space-between; /* Distribute space evenly */
+}
+
+.category-item {
+    width: 48%; /* Set width to take 48% of the row */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items */
+    margin-bottom: 20px; /* Space between rows */
+}
+
+.category-item img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the entire area */
+}

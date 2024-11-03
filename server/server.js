@@ -15,7 +15,7 @@ const orderRouter = require('./routes/order.router')
 const orderHistoryRouter = require('./routes/orderhistory.router')
 const adminRouter = require('./routes/admin.router')
 const categoryRouter = require('./routes/categorys.router')
-
+const categoryItemRouter = require('./routes/categoryItem.router')
 
 // Express Middleware
 app.use(express.json());
@@ -37,6 +37,7 @@ app.use('/api/order/',orderRouter);
 app.use('/api/orderhistory',orderHistoryRouter);
 app.use('/api/admin',adminRouter);
 app.use('/api/category',categoryRouter);
+app.use('/api/categoryItem',categoryItemRouter);
 
 
 // Listen Server & Port

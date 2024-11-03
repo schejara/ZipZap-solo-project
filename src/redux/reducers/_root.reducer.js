@@ -13,6 +13,7 @@ import orderReducer from './order.reducer';
 import orderHistoryReducer from './orderhistory.reducer';
 import adminReducer from './admin.reducer';
 import categoryReducer from './category.reducer';
+import categoryItemReducer from './categoryItem.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -33,6 +34,7 @@ const rootReducer = combineReducers({
   orderConfirmationReducer,
   orderHistoryReducer,
   adminReducer,
+  categoryItemReducer,
 });
 
 export default rootReducer;

@@ -10,6 +10,7 @@ import orderDetailSaga from './orderdetail.saga';
 import productDetailSaga from './productdetail.saga';
 import orderHistorySaga from './orderhistory.saga';
 import adminSaga from './admin.saga';
+import categoryItemSaga from './categoryitem.saga';
 
 
 // rootSaga is the primary saga.
@@ -31,6 +32,7 @@ export default function* rootSaga() {
     orderDetailSaga(),
     orderHistorySaga(),
     adminSaga(),
+    categoryItemSaga(),
    
   ]);
 }

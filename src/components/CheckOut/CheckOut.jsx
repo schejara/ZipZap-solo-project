@@ -23,6 +23,8 @@ const { total_amount, totalQuantity } = checkOutItems.reduce((acc, item) => {
     return acc;
 }, { total_amount: 0, totalQuantity: 0 });
 
+
+
 const orderItemDetails = checkOutItems.map(item => ({
     product_id: item.product_id, // Make sure you have this in your item
     quantity: item.quantity,
