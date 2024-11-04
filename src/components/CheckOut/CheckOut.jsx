@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import './CheckOut.css';
 
 function CheckOut() {
     const checkOutItems = useSelector((store) => store.checkOutReducer.items);
@@ -53,11 +54,11 @@ const orderSubmit = (event) => {
     
 
     return (
-        <div>
-            <h1>This is a CheckOut Page</h1>
+        <div className="checkout-container">
+            <h1 className="checkout-title">Your Cart</h1>
             
-            <button onClick={cart}>Cart</button>
-            <table>
+          
+            <table className="checkout-table">
                 <thead>
                     <tr>
                         <th>Product Name</th>
@@ -79,10 +80,12 @@ const orderSubmit = (event) => {
                     ))}
                 </tbody>
             </table>
-            
+            <div  className="checkout-summary">
             <h3>Total Quantity: {totalQuantity}</h3>
             <h3>Total Amount: ${total_amount}</h3>
-            <button onClick={orderSubmit}>Place Order</button>
+            </div>
+           
+            <button className="checkout-submit-button" onClick={orderSubmit}>Place Order</button>
         </div>
     );
 }

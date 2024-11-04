@@ -1,0 +1,58 @@
+.order-confirmation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.thank-you-title {
+    font-size: 2.5em;
+    color: #4CAF50; /* Green color for a positive vibe */
+}
+
+.order-confirmation-message {
+    font-size: 1.8em;
+    color: #333;
+}
+
+.order-details {
+    margin: 20px 0;
+    color: #555;
+}
+
+.button-group {
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+.home-btn {
+    background-color: #007bff; /* Blue */
+    color: white;
+}
+
+.home-btn:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+.cart-btn {
+    background-color: #f39c12; /* Orange */
+    color: white;
+}
+
+.cart-btn:hover {
+    background-color: #e67e22; /* Darker orange */
+}

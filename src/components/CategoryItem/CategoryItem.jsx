@@ -31,11 +31,11 @@ function CategoryItem() {
             {Array.isArray(categoryList) && categoryList.length > 0 ? (
                 categoryList.map((item) => (
                     <div key={item.product_id} >
-                        <h3>{item.name}</h3>
-                        <p>{item.description}</p>
                         <img src={item.image_url} alt={item.name} />
-                        <p>{item.price}</p>
-                        <button onClick={() => addToBag(item.product_id)}>Add to Bag</button>
+                        <h3 className="name">{item.name}</h3>
+                        <p className="description">{item.description}</p>                        
+                        <p className="price">${item.price}</p>
+                        <button onClick={() => addToBag(item.product_id)} className="hover-button">Add to Bag</button>
                     </div>
                 ))
             ) : (

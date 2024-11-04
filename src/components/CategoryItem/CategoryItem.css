@@ -3,3 +3,38 @@
     flex-wrap: wrap; /* Allow items to wrap onto the next line */
     justify-content: space-between; /* Distribute space evenly */
 }
+
+.hover-button {
+    padding: 5px 5px;
+    font-size: 10px;
+    color: white;
+    background-color: hsl(0, 79%, 44%); /* Initial color */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+    margin : 0px;
+    width: 60px;
+    margin-bottom: 40px;
+}
+
+.hover-button:hover {
+    background-color: hwb(359 35% 9%); /* Color on hover */
+}
+
+.name {
+ font-size: 14px;
+ font-family: Arial, Helvetica, sans-serif;
+ margin-bottom: -10px;
+}
+
+.description {
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.price{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 12px;
+}

@@ -1,0 +1,90 @@
+/* ViewBag.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.cart-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cart-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.item:last-child {
+    border-bottom: none; /* Remove border for the last item */
+}
+
+.image {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px; /* Space between image and details */
+}
+
+.item-details {
+    flex-grow: 1; /* Allow this section to take up remaining space */
+}
+
+.item-details ul {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove padding */
+}
+
+.item-details li {
+    margin: 5px 0; /* Space between list items */
+}
+
+.price {
+    font-weight: bold;
+    color: #333;
+}
+
+.qty-controls {
+    display: flex;
+    align-items: center;
+}
+
+.qty-controls button {
+    width: 40px;
+}
+
+button {
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.proceed-button {
+    background-color: #28a745;
+}
+
+.proceed-button:hover {
+    background-color: #218838;
+}
