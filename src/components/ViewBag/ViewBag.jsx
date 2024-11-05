@@ -19,10 +19,12 @@ function ViewBag() {
     }
  
     const handleIncrease = () => {
+    
         setCount(count + 1);
     };
 
     const handleDecrease = () => {
+    
         if(count > 0){
         setCount(count - 1);
         }
