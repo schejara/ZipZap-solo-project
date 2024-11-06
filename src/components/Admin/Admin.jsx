@@ -34,8 +34,10 @@ function Admin() {
         setPrice(event.target.value);
         
      }
+
+
      
-     const handleSubmit = (item) => {
+     const handleSubmit = (item,event) => {
        console.log('item to be updated is', item);
         let data = {
             inventory_count : inventory || item.inventory_count,
@@ -47,6 +49,9 @@ function Admin() {
           type: "PUT_ITEM",
           payload: data,
         });
+        setInventory('');
+        setPrice('');
+       
       };
 
   
@@ -66,9 +71,9 @@ function Admin() {
                 <th>Product Name</th>
                 <th>Description</th>
                 <th>Price</th>                
-                <th>Inventory</th>
-                <th>New Inventory</th>
+                <th>Inventory</th>               
                 <th>New Price</th>
+                <th>New Inventory</th>
                            
             </tr>
         </thead>
@@ -79,8 +84,9 @@ function Admin() {
                     <td>{item.description}</td>
                     <td>${item.price}</td>
                     <td>{item.inventory_count}</td> 
-                   <td><input type="number" placeholder='New Inventory' onChange={handleInventory}/> </td>
-                   <td><input type="number" placeholder='New Price' onChange={handlePrice}/> </td>      
+                   
+                   <td><input type="number" value={price} placeholder='New Price' onChange={handlePrice}/> </td>
+                   <td><input type="number" value={inventory}placeholder='New Inventory' onChange={handleInventory}/> </td>      
                    <td><button onClick={() => handleSubmit( item)}>Update</button></td>
                     <td><button onClick={() => deleteItem(item)}>Delete</button></td>
                            
