@@ -23,7 +23,7 @@ const { total_amount, totalQuantity } = checkOutItems.reduce((acc, item) => {
     acc.totalQuantity += item.quantity; // Sum up quantities
     return acc;
 }, { total_amount: 0, totalQuantity: 0 });
-
+const formattedTotalAmount = total_amount.toFixed(2);
 
 
 const orderItemDetails = checkOutItems.map(item => ({
@@ -82,7 +82,7 @@ const orderSubmit = (event) => {
             </table>
             <div  className="checkout-summary">
             <h3>Total Quantity: {totalQuantity}</h3>
-            <h3>Total Amount: ${total_amount}</h3>
+            <h3>Total Amount: ${formattedTotalAmount}</h3>
             </div>
            
             <button className="checkout-submit-button" onClick={orderSubmit}>Place Order</button>

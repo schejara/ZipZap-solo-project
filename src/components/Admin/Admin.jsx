@@ -26,11 +26,13 @@ function Admin() {
       const handleInventory = (event) => {
        event.preventDefault();
        setInventory(event.target.value);
+      
       }
 
      const handlePrice = (event) => {
         event.preventDefault();
         setPrice(event.target.value);
+        
      }
      
      const handleSubmit = (item) => {

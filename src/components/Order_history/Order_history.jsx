@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import moment from 'moment'; 
 
 function OrderHistory() {
     const dispatch = useDispatch();
@@ -40,7 +41,8 @@ function OrderHistory() {
                             <td>{items.user_id}</td>
                             <td>{items.total_amount}</td>
                             <td>{items.order_status}</td>
-                            <td>{items.created_at}</td>
+                            {/* Format the created_at date using moment */}
+                            <td>{moment(items.created_at).format('MMMM D, YYYY - h:mm A')}</td>
                         </tr>
                     ))}
                 </tbody>

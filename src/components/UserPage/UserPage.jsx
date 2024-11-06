@@ -57,7 +57,7 @@ function UserPage() {
  <img onClick={goToCategory} src='https://slimages.macysassets.com/is/image/MacysInc/C2406586_103?resMode=sharp2&fmt=webp&wid=1440&hei=634'
   style={{ width: '100%', height: '300px', objectFit: 'cover',marginTop:'40px' }}/>
 '
- 
+
 
   </div>
     

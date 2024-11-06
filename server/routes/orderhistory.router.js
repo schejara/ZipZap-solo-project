@@ -9,8 +9,9 @@ const {
  * Get all of the items on the shelf
  */
 router.get("/", rejectUnauthenticated, (req, res) => {
-  const queryText = "SELECT * FROM Orders WHERE user_id = $1;";
-  
+
+  const queryText = 'SELECT * FROM Orders WHERE "user_id" = $1 ORDER BY "updated_at" DESC';
+
   pool
     .query(queryText,[req.user.id])
     .then((results) => res.send(results.rows))
