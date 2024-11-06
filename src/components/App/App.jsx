@@ -26,6 +26,7 @@ import Search from '../Search/Search';
 import ViewBag from '../ViewBag/ViewBag';
 import ProductDetail from '../ProductDetail/ProductDetail';
 import Category from '../category/category';
+import CustomerInfoForm from '../CustomerInfo/CustomerInfo';
 
 import './App.css';
 
@@ -126,6 +127,13 @@ function App() {
             path="/CheckOut"
           >
             < CheckOut/>
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/CustomerInfo"
+          >
+            < CustomerInfoForm/>
           </ProtectedRoute>
 
           <ProtectedRoute

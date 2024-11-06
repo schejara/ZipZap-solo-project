@@ -2,8 +2,6 @@ import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
 import productReducer from './product.reducer';
-
-
 import orderDetail from './orderdetail.reducer';
 import productDetailReducer from './productdetail.reducer';
 import bagReducer from './bag.reducer';
@@ -14,6 +12,7 @@ import orderHistoryReducer from './orderhistory.reducer';
 import adminReducer from './admin.reducer';
 import categoryReducer from './category.reducer';
 import categoryItemReducer from './categoryItem.reducer';
+import customerInfoReducer from './customerinfo.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -35,6 +34,8 @@ const rootReducer = combineReducers({
   orderHistoryReducer,
   adminReducer,
   categoryItemReducer,
+  customerInfoReducer,
+  
 });
 
 export default rootReducer;

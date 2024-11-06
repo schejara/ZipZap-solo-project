@@ -48,7 +48,7 @@ const orderSubmit = (event) => {
       type: "ADD_ORDER",
       payload: data,
     });
-    history.push('/OrderConfirmation');
+    history.push('/CustomerInfo');
   };
 
     
