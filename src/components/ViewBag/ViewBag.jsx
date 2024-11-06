@@ -12,6 +12,24 @@ function ViewBag() {
         dispatch({ type: 'ADD_TO_CHECK_OUT', payload: bagItems });
         history.push('/CheckOut');
     };
+     
+    const removeItem = (item) => {
+        
+    let data = {
+      product_id:item.product_id,
+      name:item.name,     
+      image: item.image_url,
+      description:item.description,
+      price:item.price,
+      
+    };
+    console.log('data',data);
+    dispatch({
+      type: "REMOVE_ITEM",
+      payload: data,
+    });
+        
+    }
 
     const increaseQuantity = (product_id) => {
         dispatch({ type: 'INCREASE_QUANTITY', payload: product_id });
@@ -36,6 +54,7 @@ function ViewBag() {
                                 Qty: {item.quantity || 1} 
                                 <button onClick={() => decreaseQuantity(item.product_id)}>-</button>
                             </div>
+                            <button onClick={() => removeItem(item)}>Remove</button>
                         </div>
                     </li>
                 ))}

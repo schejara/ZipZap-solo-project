@@ -29,6 +29,14 @@ const initialState = {
               : item
           ),
         };
+
+        case 'REMOVE_ITEM':
+            return{
+                ...state,
+                // items: [...state.items, action.payload.product_id], 
+                items: state.items.filter(item => item.product_id !== action.payload.product_id),
+       
+            }
   
       default:
         return state;
