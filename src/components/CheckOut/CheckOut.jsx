@@ -85,7 +85,7 @@ const orderSubmit = (event) => {
             <h3>Total Amount: ${formattedTotalAmount}</h3>
             </div>
            
-            <button className="checkout-submit-button" onClick={orderSubmit}>Place Order</button>
+            <button className="checkout-submit-button" onClick={orderSubmit}>Continue</button>
         </div>
     );
 }

@@ -40,12 +40,12 @@
 }
 
 .home-btn {
-    background-color: #007bff; /* Blue */
+    background-color: #c41414; /* Blue */
     color: white;
 }
 
 .home-btn:hover {
-    background-color: #0056b3; /* Darker blue */
+    background-color: #eb5e60; /* Darker blue */
 }
 
 .cart-btn {

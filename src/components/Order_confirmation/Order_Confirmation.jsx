@@ -41,8 +41,8 @@ function OrderConfirmation() {
             <h2 className="order-confirmation-message">Your Order has been Confirmed.</h2>
             <p className="order-details">We’re preparing your order and will notify you once it’s on its way!</p>
             <div className="button-group">
-                <button onClick={home} className="btn home-btn">Go to Home</button>
-                <button onClick={cart} className="btn cart-btn">View Cart</button>
+                <button onClick={home} className=" home-btn">Go to Home</button>
+                <button onClick={cart} className=" cart-btn">View Cart</button>
             </div>
         </div>
     );

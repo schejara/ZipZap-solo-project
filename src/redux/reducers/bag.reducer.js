@@ -3,6 +3,7 @@ const initialState = {
   };
   
   const bagReducer = (state = initialState, action) => {
+    console.log("Current State:", state)
     switch (action.type) {
       case 'ADD_TO_BAG':
         return {
@@ -11,10 +12,11 @@ const initialState = {
         };
   
       case 'INCREASE_QUANTITY':
+        console.log("Increasing quantity for item:", action.payload);
         return {
           ...state,
           items: state.items.map(item =>
-            item.id === action.payload.id
+            item.product_id === action.payload.id
               ? { ...item, quantity: item.quantity + 1 }
               : item
           ),
@@ -24,23 +26,22 @@ const initialState = {
         return {
           ...state,
           items: state.items.map(item =>
-            item.id === action.payload.id && item.quantity > 1
+            item.product_id === action.payload.id && item.quantity > 1
               ? { ...item, quantity: item.quantity - 1 }
               : item
           ),
         };
 
         case 'REMOVE_ITEM':
-            return{
-                ...state,
-                // items: [...state.items, action.payload.product_id], 
-                items: state.items.filter(item => item.product_id !== action.payload.product_id),
-       
-            }
-  
-      default:
-        return state;
-    }
+      console.log('Removing item with product_id:', action.payload.id);
+      return {
+        ...state,
+        items: state.items.filter(item => item.product_id !== action.payload.id),
+      };
+
+    default:
+      return state;
+  }
   };
   
   export default bagReducer;

@@ -74,6 +74,8 @@ function Admin() {
                 <th>Inventory</th>               
                 <th>New Price</th>
                 <th>New Inventory</th>
+                <th>Update</th>
+                <th>Delete</th>
                            
             </tr>
         </thead>
@@ -85,8 +87,8 @@ function Admin() {
                     <td>${item.price}</td>
                     <td>{item.inventory_count}</td> 
                    
-                   <td><input type="number" value={price} placeholder='New Price' onChange={handlePrice}/> </td>
-                   <td><input type="number" value={inventory}placeholder='New Inventory' onChange={handleInventory}/> </td>      
+                   <td><input type="number" placeholder='New Price' onChange={handlePrice}/> </td>
+                   <td><input type="number" placeholder='New Inventory' onChange={handleInventory}/> </td>      
                    <td><button onClick={() => handleSubmit( item)}>Update</button></td>
                     <td><button onClick={() => deleteItem(item)}>Delete</button></td>
                            

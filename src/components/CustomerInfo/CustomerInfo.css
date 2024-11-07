@@ -1,0 +1,54 @@
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;  
+    margin: 0 auto;
+    padding: 20px;
+    gap: 15px;  
+}
+
+/* Input field styling */
+.input-field input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;  
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Submit button styling */
+.input-field button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.input-field button:hover {
+    background-color: #45a049;
+}
+
+
+.radio-buttons div {
+    margin-bottom: 10px;
+    
+}
+
+.radio-buttons input {
+    margin-right: 8px;
+    
+}
+.radio-form{
+    margin-top: -270px;
+}
+
+footer{
+    visibility:hidden;
+}
+

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom";
+import './CustomerInfo.css';
 function CustomerInfoForm(){
     let [nameToSend, setNameToSend] = useState('')
     let [addressToSend, setAddressToSend] = useState('')
@@ -8,6 +9,7 @@ function CustomerInfoForm(){
     let [zipToSend, setZipToSend] = useState('')
     let [pickupOrDelivery, setPickupOrDelivery] = useState ('Pickup')
     const dispatch = useDispatch();
+    
 
     const handleNameChange = (event) => {
         setNameToSend(event.target.value)
@@ -49,19 +51,22 @@ function CustomerInfoForm(){
         history.push('/OrderConfirmation')
     }
     return(
-        <div>
-            <h2>Step 2: Customer Information</h2>
-            <form onSubmit={(event) => addInfo(event)}>
-                <input onChange={handleNameChange} type='text' placeholder='Name'></input>
+        <div >
+            <h2 >Shipping Address</h2>
+            <form  className="container" onSubmit={(event) => addInfo(event)}>
+                <input className="input-field" onChange={handleNameChange} type='text' placeholder='Name'></input>
                 <input onChange={handleAddressChange} type='text' placeholder='Adress'></input>
                 <input onChange={handleCityChange} type='text' placeholder='City'></input>
                 <input onChange={handleZipChange} type='text' placeholder='ZIP code'></input>
-                <button type='submit'>Submit</button>
+                
+                <button type='submit'>Place Order</button>
             </form>
-            <form onChange={(event) => handlePickupChange(event)}>
+            <form className=" radio-form" onChange={(event) => handlePickupChange(event)}>
                 <input type='radio' name='pickup' id='pickupradio' defaultChecked = {true}/>Pickup
                 <input type='radio' name = 'pickup' id = 'deliveryradio'/> Delivery
             </form>
+            
+            
         </div>
     )
 }

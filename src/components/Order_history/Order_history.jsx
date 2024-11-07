@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import moment from 'moment'; 
+import './Order_history.css';
 
 function OrderHistory() {
     const dispatch = useDispatch();
@@ -22,11 +23,14 @@ function OrderHistory() {
     }, [dispatch]);
 
     return (
-        <div>
+        <div className="order-history">
             <h1>This is an Order History Page</h1>
+            <div className="buttons">
             <button onClick={home}>Home</button>
             <button onClick={cart}>Cart</button>
-            <table>
+            </div>
+            
+            <table className="order-table">
                 <thead>
                     <tr>
                         <th>User ID</th>
@@ -41,7 +45,7 @@ function OrderHistory() {
                             <td>{items.user_id}</td>
                             <td>{items.total_amount}</td>
                             <td>{items.order_status}</td>
-                            {/* Format the created_at date using moment */}
+                          
                             <td>{moment(items.created_at).format('MMMM D, YYYY - h:mm A')}</td>
                         </tr>
                     ))}

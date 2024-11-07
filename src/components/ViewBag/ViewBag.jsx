@@ -13,30 +13,21 @@ function ViewBag() {
         history.push('/CheckOut');
     };
      
-    const removeItem = (item) => {
-        
-    let data = {
-      product_id:item.product_id,
-      name:item.name,     
-      image: item.image_url,
-      description:item.description,
-      price:item.price,
-      
-    };
-    console.log('data',data);
+    const removeItem = (product_id) => {
     dispatch({
       type: "REMOVE_ITEM",
-      payload: data,
+      payload: {id:product_id},
     });
         
     }
 
     const increaseQuantity = (product_id) => {
-        dispatch({ type: 'INCREASE_QUANTITY', payload: product_id });
+        console.log(product_id);
+        dispatch({ type: 'INCREASE_QUANTITY', payload: {id: product_id} });
     };
 
     const decreaseQuantity = (product_id) => {
-        dispatch({ type: 'DECREASE_QUANTITY', payload: product_id });
+        dispatch({ type: 'DECREASE_QUANTITY', payload: {id:product_id }});
     };
 
     return (
@@ -54,14 +45,14 @@ function ViewBag() {
                                 Qty: {item.quantity || 1} 
                                 <button onClick={() => decreaseQuantity(item.product_id)}>-</button>
                             </div>
-                            <button onClick={() => removeItem(item)}>Remove</button>
+                            <button onClick={() => removeItem(item.product_id)}>Remove</button>
                         </div>
                     </li>
                 ))}
             </div>
 
             <div>
-                <button className="proceed-button" onClick={proceedToCheckOut}>Proceed To Check Out</button>
+                <button className="proceed-button" onClick={proceedToCheckOut}>Proceed To Checkout</button>
             </div>
         </div>
     );
