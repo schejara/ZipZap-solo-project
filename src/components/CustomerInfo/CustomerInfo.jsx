@@ -1,6 +1,8 @@
 import { useState } from "react"
-import { useDispatch } from "react-redux"
-import { useHistory } from "react-router-dom";
+// import { useDispatch } from "react-redux"
+import { useHistory} from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
 import './CustomerInfo.css';
 function CustomerInfoForm(){
     let [nameToSend, setNameToSend] = useState('')
@@ -9,6 +11,8 @@ function CustomerInfoForm(){
     let [zipToSend, setZipToSend] = useState('')
     let [pickupOrDelivery, setPickupOrDelivery] = useState ('Pickup')
     const dispatch = useDispatch();
+    const cartItem = useSelector((store) => store.bagReducer);
+    console.log('clear the cart',cartItem);
     
 
     const handleNameChange = (event) => {
@@ -35,6 +39,13 @@ function CustomerInfoForm(){
         }
     }
 
+    
+    const clearTheCart = () => {
+        dispatch({
+          type: 'CLEAR_CART', // Corrected the syntax here
+        });
+      };
+
     const history = useHistory();
     const addInfo = (event) => {
         event.preventDefault();
@@ -45,9 +56,12 @@ function CustomerInfoForm(){
                 address: addressToSend,
                 city: cityToSend,
                 zip: zipToSend,
-                pickupOrDelivery: pickupOrDelivery
+                pickupOrDelivery: pickupOrDelivery,
+                
             }
+
         })
+        clearTheCart();
         history.push('/OrderConfirmation')
     }
     return(

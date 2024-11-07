@@ -39,6 +39,12 @@ const initialState = {
         items: state.items.filter(item => item.product_id !== action.payload.id),
       };
 
+      case 'CLEAR_CART':
+        return {
+          ...state,
+          items: [],
+  };
+
     default:
       return state;
   }
