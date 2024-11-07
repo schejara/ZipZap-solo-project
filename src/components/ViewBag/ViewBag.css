@@ -29,27 +29,29 @@ body {
 }
 
 .item:last-child {
-    border-bottom: none; /* Remove border for the last item */
+    border-bottom: none; 
 }
 
 .image {
     width: 100px;
     height: auto;
     border-radius: 8px;
-    margin-right: 20px; /* Space between image and details */
+    margin-right: 20px;
 }
 
 .item-details {
-    flex-grow: 1; /* Allow this section to take up remaining space */
+    flex-grow: 1; 
+    margin-left: 350px;
+    margin-top: -180px;
 }
 
 .item-details ul {
-    list-style-type: none; /* Remove default list styles */
-    padding: 0; /* Remove padding */
+    list-style-type: none; 
+    padding: 0; 
 }
 
 .item-details li {
-    margin: 5px 0; /* Space between list items */
+    margin: 5px 0; 
 }
 
 .price {
@@ -60,6 +62,7 @@ body {
 .qty-controls {
     display: flex;
     align-items: center;
+    height: 20px;
 }
 
 .qty-controls button {
@@ -71,10 +74,12 @@ button {
     margin: 5px;
     border: none;
     border-radius: 4px;
-    background-color:hsl(0, 100%, 35%);
-    color: white;
+    background-color:hsla(0, 58%, 42%, 0.923);
+    color:white;
     cursor: pointer;
     transition: background-color 0.3s ease;
+   
+  
 }
 
 button:hover {
@@ -83,6 +88,8 @@ button:hover {
 
 .proceed-button {
     background-color: #28a745;
+    margin-top: 50px;
+    margin-left: 350px;
 }
 
 .proceed-button:hover {
@@ -91,4 +98,11 @@ button:hover {
 
 li{
     list-style: none;
+}
+.remove-btn{
+    background-color: rgb(178, 210, 238);
+}
+
+.remove-btn:hover{
+    background-color: rgb(203, 221, 236);
 }

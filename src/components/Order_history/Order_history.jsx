@@ -33,7 +33,8 @@ function OrderHistory() {
             <table className="order-table">
                 <thead>
                     <tr>
-                        <th>User ID</th>
+                        
+                        <th>Order ID</th>
                         <th>Total Amount</th>
                         <th>Order Status</th>
                         <th>Created At</th>
@@ -42,10 +43,9 @@ function OrderHistory() {
                 <tbody>
                     {orderHistory.map((items) => (
                         <tr key={items.order_id}>
-                            <td>{items.user_id}</td>
+                            <td>{items.order_id}</td>                          
                             <td>{items.total_amount}</td>
-                            <td>{items.order_status}</td>
-                          
+                            <td>{items.order_status}</td>                          
                             <td>{moment(items.created_at).format('MMMM D, YYYY - h:mm A')}</td>
                         </tr>
                     ))}

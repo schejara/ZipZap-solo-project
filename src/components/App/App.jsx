@@ -22,7 +22,6 @@ import OrderConfirmation from '../Order_confirmation/Order_Confirmation';
 import CheckOut from '../CheckOut/CheckOut';
 import OrderHistory from '../Order_history/Order_history';
 import ProductListing from '../ProductListing/ProductListing';
-import Search from '../Search/Search';
 import ViewBag from '../ViewBag/ViewBag';
 import ProductDetail from '../ProductDetail/ProductDetail';
 import Category from '../category/category';
@@ -72,13 +71,7 @@ function App() {
             <Admin />
           </ProtectedRoute>
           
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/Search"
-          >
-            <Search />
-          </ProtectedRoute>
+          
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact

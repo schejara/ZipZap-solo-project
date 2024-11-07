@@ -74,8 +74,8 @@ const orderSubmit = (event) => {
                             <td>{item.name}</td>
                             <td>{item.description}</td>
                             <td>${item.price}</td>
-                            <td>{item.quantity}</td> {/* Display quantity here */}
-                            <td>${(item.price * item.quantity)}</td> {/* Subtotal for each item */}
+                            <td>{item.quantity}</td>
+                            <td>${(item.price * item.quantity)}</td> 
                         </tr>
                     ))}
                 </tbody>

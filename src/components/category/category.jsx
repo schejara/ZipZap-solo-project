@@ -20,7 +20,8 @@ function Category() {
 
     return (
         <div className="category-container">
-            <h1>What are you Shopping for today?</h1>
+            <h1 className="category-heading">What are you Shopping for today?</h1>
+            
             {categoryList.map((item) => (
                 <div className="category-item" key={item.id}>
                     <p>{item.category_name}</p>

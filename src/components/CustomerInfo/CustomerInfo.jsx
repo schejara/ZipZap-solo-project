@@ -54,16 +54,16 @@ function CustomerInfoForm(){
         <div >
             <h2 >Shipping Address</h2>
             <form  className="container" onSubmit={(event) => addInfo(event)}>
-                <input className="input-field" onChange={handleNameChange} type='text' placeholder='Name'></input>
-                <input onChange={handleAddressChange} type='text' placeholder='Adress'></input>
-                <input onChange={handleCityChange} type='text' placeholder='City'></input>
-                <input onChange={handleZipChange} type='text' placeholder='ZIP code'></input>
+                <input className="input-field" onChange={handleNameChange} type='text' Value ='Shobha Chejara' placeholder='Name'></input>
+                <input onChange={handleAddressChange} type='text' Value = '18261 Glacier Way' placeholder='Adress'></input>
+                <input onChange={handleCityChange} type='text' Value = 'Lakeville, MN' placeholder='City'></input>
+                <input onChange={handleZipChange} type='text' Value = '55044' placeholder='ZIP code'></input>
                 
                 <button type='submit'>Place Order</button>
             </form>
             <form className=" radio-form" onChange={(event) => handlePickupChange(event)}>
-                <input type='radio' name='pickup' id='pickupradio' defaultChecked = {true}/>Pickup
-                <input type='radio' name = 'pickup' id = 'deliveryradio'/> Delivery
+                <input type='radio' name='pickup' id='pickupradio' />Pickup
+                <input type='radio' name = 'pickup' id = 'deliveryradio' defaultChecked = {true}/> Delivery
             </form>
             
             

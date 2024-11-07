@@ -41,11 +41,12 @@ function ViewBag() {
                             <p>{item.description}</p>
                             <p>Price: ${item.price}</p>
                             <div className="qty-controls">
-                                <button onClick={() => increaseQuantity(item.product_id)}>+</button>
+                            <button onClick={() => decreaseQuantity(item.product_id)}>-</button>                                
                                 Qty: {item.quantity || 1} 
-                                <button onClick={() => decreaseQuantity(item.product_id)}>-</button>
+                                <button onClick={() => increaseQuantity(item.product_id)}>+</button>
+                                
                             </div>
-                            <button onClick={() => removeItem(item.product_id)}>Remove</button>
+                            <button className='remove-btn'onClick={() => removeItem(item.product_id)}>Remove</button>
                         </div>
                     </li>
                 ))}

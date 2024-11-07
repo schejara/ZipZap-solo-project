@@ -34,7 +34,7 @@ function CategoryItem() {
                         <img src={item.image_url} alt={item.name} />
                         <h3 className="name">{item.name}</h3>
                         <p className="description">{item.description}</p>                        
-                        <p className="price">{item.price}</p>
+                        <p className="price">${item.price}</p>
                         <button onClick={() => addToBag(item.product_id)} className="hover-button">Add to Bag</button>
                     </div>
                 ))
@@ -46,3 +46,4 @@ function CategoryItem() {
 }
 
 export default CategoryItem;
+
