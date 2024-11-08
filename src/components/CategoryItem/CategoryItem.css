@@ -8,11 +8,11 @@
     padding: 5px 5px;
     font-size: 10px;
     color: white;
-    background-color: hsl(0, 79%, 44%); /* Initial color */
+    background-color: hsl(0, 79%, 44%); 
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth transition */
+    transition: background-color 0.3s ease; 
     margin : 0px;
     width: 60px;
     margin-bottom: 40px;
@@ -20,7 +20,7 @@
 }
 
 .hover-button:hover {
-    background-color: hwb(359 35% 9%); /* Color on hover */
+    background-color: hwb(359 35% 9%); 
 }
 
 .name {
@@ -38,4 +38,24 @@
     margin-bottom: 5px;
     margin-top: 5px;
     font-size: 12px;
+}
+
+.product-status {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #e74c3c; 
+    font-weight: bold;
+}
+
+
+.product-status.sale {
+    color: #f39c12; 
+}
+
+.product-status.clearance {
+    color: #27ae60; 
+}
+
+.product-status.limited-stock {
+    color: #8e44ad; 
 }

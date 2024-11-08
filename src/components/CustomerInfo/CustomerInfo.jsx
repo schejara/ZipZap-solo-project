@@ -42,7 +42,7 @@ function CustomerInfoForm(){
     
     const clearTheCart = () => {
         dispatch({
-          type: 'CLEAR_CART', // Corrected the syntax here
+          type: 'CLEAR_CART', 
         });
       };
 
