@@ -30,6 +30,7 @@ function Nav() {
             </Link>
             <Link className="navLink" to="/OrderHistory">Order History</Link>
             <Link className="navLink" to="/Category">Category</Link>
+            <Link className="navLink" to="/About">About</Link>
 
             
 

@@ -42,7 +42,7 @@ body {
 .item-details {
     flex-grow: 1; 
     margin-left: 350px;
-    margin-top: -180px;
+    margin-top: -170px;
 }
 
 .item-details ul {
@@ -82,6 +82,8 @@ button {
   
 }
 
+
+
 button:hover {
     background-color: hsl(0, 100%, 35%);
 }
@@ -100,9 +102,10 @@ li{
     list-style: none;
 }
 .remove-btn{
-    background-color: rgb(178, 210, 238);
+    margin-top: 20px;
+    background-color: rgb(153, 198, 226);
 }
 
 .remove-btn:hover{
-    background-color: rgb(203, 221, 236);
+    background-color: rgb(182, 219, 242);
 }

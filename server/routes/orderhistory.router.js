@@ -5,9 +5,7 @@ const {
   rejectUnauthenticated,
 } = require("../modules/authentication-middleware");
 
-/**
- * Get all of the items on the shelf
- */
+
 router.get("/", rejectUnauthenticated, (req, res) => {
 
   const queryText = 'SELECT * FROM Orders WHERE "user_id" = $1 ORDER BY "updated_at" DESC';

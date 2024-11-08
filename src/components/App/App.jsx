@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
+import About from '../About/About';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import UserPage from '../UserPage/UserPage';
 import CategoryItem from '../CategoryItem/CategoryItem';
@@ -69,6 +69,13 @@ function App() {
             path="/Admin"
           >
             <Admin />
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/About"
+          >
+            <About />
           </ProtectedRoute>
           
           
