@@ -28,8 +28,12 @@ function Nav() {
             <Link className="navLink" to="/user">
               Home
             </Link>
-            <Link className="navLink" to="/OrderHistory">Order History</Link>
+            <Link className="navLink" to="/ViewBag">
+             Cart
+            </Link>
+            
             <Link className="navLink" to="/Category">Category</Link>
+            <Link className="navLink" to="/OrderHistory">Order History</Link>
             <Link className="navLink" to="/About">About</Link>
 
             
@@ -42,9 +46,7 @@ function Nav() {
           )
         }
 
-            <Link className="navLink" to="/ViewBag">
-             Cart
-            </Link>
+            
 
             <LogOutButton className="navLink" />
           </>
