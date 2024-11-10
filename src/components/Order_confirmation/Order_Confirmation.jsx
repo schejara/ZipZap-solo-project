@@ -25,7 +25,7 @@ function OrderConfirmation() {
             // Stop confetti after a few seconds
             const confettiTimeout = setTimeout(() => {
               setShowConfetti(false);
-            }, 2000); 
+            }, 3000); 
         
             return () => {
               clearTimeout(timeout);

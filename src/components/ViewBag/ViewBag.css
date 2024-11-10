@@ -109,3 +109,19 @@ li{
 .remove-btn:hover{
     background-color: rgb(182, 219, 242);
 }
+.qty {
+    font-size: 18px; /* Makes the buttons smaller */
+     /* Adjusts the padding to make the buttons smaller */
+    background-color: #ab1717ea;
+    text-align: center; 
+    padding-top: 0px; 
+   padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+
+   
+   
+    
+
+}
