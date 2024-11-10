@@ -24,6 +24,7 @@ function CategoryItem() {
         dispatch({ type: 'ADD_TO_BAG', payload: categoryWithQuantity });
         history.push('/ViewBag');
     };
+    
 
     return (
         <div className="category-container">
@@ -48,6 +49,9 @@ function CategoryItem() {
             )}
         </div>
     );
+    
+  
+   
 }
 
 export default CategoryItem;

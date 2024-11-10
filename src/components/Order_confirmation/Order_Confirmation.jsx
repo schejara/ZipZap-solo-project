@@ -25,7 +25,7 @@ function OrderConfirmation() {
             // Stop confetti after a few seconds
             const confettiTimeout = setTimeout(() => {
               setShowConfetti(false);
-            }, 7000); 
+            }, 2000); 
         
             return () => {
               clearTimeout(timeout);
@@ -40,6 +40,7 @@ function OrderConfirmation() {
             {showConfetti && <Confetti />}
             <h2 className="order-confirmation-message">Your Order has been Confirmed.</h2>
             <p className="order-details">We’re preparing your order and will notify you once it’s on its way!</p>
+            <p className='Estd'>Estimated Delivery: 2 to 3 days</p>
             <div className="button-group">
                 <button onClick={home} className=" home-btn">Go to Home</button>
                 <button onClick={cart} className=" cart-btn">View Cart</button>

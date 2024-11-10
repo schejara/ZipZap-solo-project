@@ -18,6 +18,9 @@ function Category() {
         history.push(`/CategoryItem/${id}`); // Navigate to the detail page
     };
 
+
+    
+
     return (
         <div className="category-container">
             <h1 className="category-heading">What are you Shopping for today?</h1>

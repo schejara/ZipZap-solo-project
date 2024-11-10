@@ -32,6 +32,7 @@ function About() {
         <h4 className="section-title">Development Environment</h4>
         <ul className="tech-list">
          <li>VS Code</li>
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP7z6v-m67m5676ovcdoMmEwy2ozUf7lkbMwHW3sUDFU5xAXlrxf0yPniR0l20c8XGGys&usqp=CAU"/>
         </ul>
       </div>
       <div className="about-section">
@@ -51,6 +52,7 @@ function About() {
         <h4 className="section-title">Database</h4>
         <ul className="tech-list">
          <li>PostgreSQL</li>
+         <img src="https://icon2.cleanpng.com/20180821/ebc/6cb2e3c65a3d6d0c0640ae388b42a62a.webp"/>
          
         </ul>
       </div>
