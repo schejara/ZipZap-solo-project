@@ -1,124 +1,130 @@
-# Prime Solo Project - Starting Repo
+# ZipZap Shop - README
 
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+## Overview
 
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
+**ZipZap Shop** is designed to provide users with a seamless online shopping experience, allowing them to browse, select, and purchase products while managing their accounts and order history.
 
-## Use the Template for This Repository (Don't Clone)
+---
 
-- Don't Fork or Clone. Instead, click the `Use this Template` button, and make a copy to your personal account. Make the project `PUBLIC`!
+## Key Features
 
-## Prerequisites
+### 1. **User Authentication**  
+   - Users can **sign up** for new accounts, **log in**, and **manage their profiles** securely.
+   
+### 2. **Product Management**  
+   - The platform allows users to **explore a wide range of products**, organized by categories. Each product comes with detailed information to help users make informed purchase decisions.
+   
+### 3. **Shopping Bag Functionality**  
+   - Users can **add products to their shopping bags**, **modify quantities**, and **remove items** before proceeding to checkout.
 
-Before you get started, make sure you have the following software installed on your computer:
+### 4. **Checkout Process**  
+   - A straightforward and user-friendly **checkout experience** that collects **shipping** and **billing information**, allowing users to review their orders before confirming the purchase.
 
-- [Node.js](https://nodejs.org/en)
-- [PostgreSQL](https://www.postgresql.org)
-- [Nodemon](https://nodemon.io)
+### 5. **Order Confirmation and History**  
+   - After placing an order, users receive **confirmation details** and can easily access their **order history** to review past purchases.
 
-## Create Database and Table
+### 6. **User Account Management**  
+   - Users can **update personal information**, view their **order histories**, and manage multiple shopping bags in a convenient dashboard.
 
-Create a new database called `prime_app` and create a `user` table:
+### 7. **Admin Dashboard**  
+   - A dedicated **administrative interface** for managing products, orders, and user accounts, ensuring smooth operation and scalability of the platform.
 
-```SQL
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
-);
-```
+---
 
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`.
+## Challenges & Future Enhancements
 
-## Development Setup Instructions
+### Challenges
 
-- Run `npm install`.
-    - Be sure to take stock of `package.json` to see which dependencies you'll need to add.
-- Create a `.env` file at the root of the project and paste this line into the file:
+1. **Migration to AWS RDS - PostgreSQL Database**  
+   Transitioning the existing database to Amazon RDS using PostgreSQL for better performance and scalability.
 
-```plaintext
-SERVER_SESSION_SECRET=superDuperSecret
-```
+2. **Setting Up AWS Free Tier Account**  
+   Establishing an AWS Free Tier account for resource management, including database hosting, storage, and compute resources.
 
-While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [Password Generator Plus](https://passwordsgenerator.net). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
+3. **Configuration of RDS Database**  
+   Proper configuration of the RDS PostgreSQL database for optimal performance, security, and accessibility.
 
-- Start postgres if not running already by using opening up the [Postgres.app](https://postgresapp.com), or if using [Homebrew](https://brew.sh) you can use the command `brew services start postgresql`.
-- Run `npm run server` to start the server.
-- Run `npm run client` to start the client.
-- Navigate to `localhost:5173`.
+4. **Setting Up Security Groups**  
+   Defining and configuring security groups in AWS to control inbound and outbound traffic to resources.
 
-## Debugging
+5. **Complex SQL Join Queries**  
+   Developing and optimizing complex SQL queries for efficient data retrieval and manipulation.
 
-To debug, you will need to run the client-side separately from the server. Start the client by running the command `npm run client`. Start the debugging server by selecting the Debug button.
+### Future Enhancements
 
-![VSCode Toolbar](documentation/images/vscode-toolbar.png)
+1. **Render Product Images from AWS S3 Bucket**  
+   Implementing the feature to dynamically render product images stored in AWS S3 for faster and more efficient product display.
 
-Then make sure `Launch Program` is selected from the dropdown, then click the green play arrow.
+2. **Admin Features for Adding New Products**  
+   Providing an intuitive admin interface for business owners to easily add new products to the store without technical expertise.
 
-![VSCode Debug Bar](documentation/images/vscode-debug-bar.png)
+---
 
-## Testing Routes with Postman
+## Problem Statement
 
-To use Postman with this repo, you will need to set up requests in Postman to register a user and login a user at a minimum.
+### For Consumers
 
-Keep in mind that once you using the login route, Postman will manage your session cookie for you just like a browser, ensuring it is sent with each subsequent request. If you delete the `localhost` cookie in Postman, it will effectively log you out.
+- **No Time to Shop In-Store**:  
+  Busy consumers need a fast, convenient way to shop online without spending time in physical stores.
 
-1. Run `npm run server` to start the server.
-2. Import the sample routes JSON file [v2](./PostmanPrimeSoloRoutesv2.json) by clicking `Import` in Postman. Select the file.
-3. Click `Collections` and `Send` the following three calls in order:
-   1. `POST /api/user/register` registers a new user, see body to change username/password.
-   2. `POST /api/user/login` will login a user, see body to change username/password.
-   3. `GET /api/user` will get user information, by default it's not very much.
+- **Need Quick, Easy Access to a Variety of Products**:  
+  Shoppers want to browse through a wide range of options, compare products, and make purchases seamlessly.
 
-After running the login route above, you can try any other route you've created that requires a logged in user!
+### For Business Owners
 
-## Production Build
+- **Limited to Local Stores, Wanting to Expand**:  
+  Many business owners are confined to their physical locations and struggle to reach a wider audience. They need an easy way to grow their business online.
 
-Before pushing to Heroku, run `npm run build` in terminal. This will create a build folder that contains the code Heroku will be pointed at. You can test this build by typing `npm start`. Keep in mind that `npm start` will let you preview the production build but will **not** auto update.
+- **Difficulty Managing Online Operations**:  
+  Expanding into e-commerce often means juggling inventory, orders, and customer data—tasks that can be overwhelming without the right tools.
 
-- Start postgres if not running already by using opening up the [Postgres.app](https://postgresapp.com), or if using [Homebrew](https://brew.sh) you can use the command `brew services start postgresql`.
-- Run `npm start`.
-- Navigate to `localhost:5173`.
+---
 
-## Lay of the Land
+## Technology Stack
 
-There are a few videos linked below that show a walkthrough the client and sever setup to help acclimatize to the boilerplate. Please take some time to watch the videos in order to get a better understanding of what the boilerplate is like.
+- **Frontend**:  
+  - HTML, CSS, JavaScript, React.js
+  
+- **Backend**:  
+  - Node.js, Express.js 
+  
+- **Database**:  
+  - PostgreSQL (AWS RDS)
 
-- [Initial Set](https://vimeo.com/453297271)
-- [Server Walkthrough](https://vimeo.com/453297212)
-- [Client Walkthrough](https://vimeo.com/453297124)
+- **Cloud Infrastructure**:  
+  - AWS (EC2, S3, RDS)
 
-Directory Structure:
+- **Security**:  
+  - AWS IAM for user authentication and authorization
+  - AWS Security Groups for resource protection
 
-- `src/` contains the React application.
-- `public/` contains static assets for the client-side.
-- `build/` after you build the project, contains the transpiled code from `src/` and `public/` that will be viewed on the production site.
-- `server/` contains the Express App.
+- **Other Tools**:  
+  - GitHub for version control
+  
 
-This code is also heavily commented. We recommend reading through the comments, getting a lay of the land, and becoming comfortable with how the code works before you start making too many changes. If you're wondering where to start, consider reading through component file comments in the following order:
+---
 
-- src/components
-  - App/App
-  - Footer/Footer
-  - Nav/Nav
-  - AboutPage/AboutPage
-  - InfoPage/InfoPage
-  - UserPage/UserPage
-  - LoginPage/LoginPage
-  - RegisterPage/RegisterPage
-  - LogOutButton/LogOutButton
-  - ProtectedRoute/ProtectedRoute
+## Future Roadmap
 
-## Deployment
+1. **User Interface Improvements**  
+   Enhance the user interface for a more seamless shopping experience.
+   
+2. **Admin Dashboard Enhancements**  
+   Improve the admin dashboard to include additional features like advanced reporting, sales analytics, and product performance tracking.
 
-1. Create a new Heroku project.
-1. Link the Heroku project to the project GitHub Repo.
-1. Create an Heroku Postgres database.
-1. Connect to the Heroku Postgres database from Postico.
-1. Create the necessary tables.
-1. Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security.
-1. In the deploy section, select manual deploy.
+3. **Payment Gateway Integration**  
+   Integrate payment gateways for a complete, secure online shopping experience.
 
-## Update Documentation
+4. **Mobile Application**  
+   Develop mobile applications to cater to the growing demand for mobile shopping.
 
-Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2.
+---
+
+### Contact
+
+For any inquiries, feedback, or collaboration, feel free to reach out to us at
+Email [shobhachejara@gmail.com]
+
+
+
+  
