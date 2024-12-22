@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import './Order_Confirmation.css';
+import './Order_confirmation.css';
 import Confetti from 'react-confetti';
 import { useEffect } from 'react';
 import { useState } from 'react';
